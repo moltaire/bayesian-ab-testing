@@ -110,6 +110,19 @@ class ProportionTestResult:
     n_b: int
     alternative: str
 
+    def __repr__(self):
+        return "\n".join(
+            [
+                f"ProportionTestResult(z_statistic={self.z_statistic:.4f}, ",
+                f"p_value={self.p_value:.4f}, significant={self.significant}, ",
+                f"alpha={self.alpha:.2f}, rate_a={self.rate_a:.4f}, ",
+                f"rate_b={self.rate_b:.4f}, absolute_lift={self.absolute_lift:.4f}, ",
+                f"relative_lift={self.relative_lift:.4f}, ci_a={self.ci_a}, ",
+                f"ci_b={self.ci_b}, n_a={self.n_a}, n_b={self.n_b}, ",
+                f"alternative='{self.alternative}')",
+            ]
+        )
+
 
 def power_analysis(
     p_control: float,

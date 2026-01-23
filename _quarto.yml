@@ -13,8 +13,8 @@ website:
     style: "docked"
     background: "#FFFFFF"
     border: false
-    logo: https://github.com/moltaire/moltaire.github.io/blob/cefef8bb3fd5298ea7692047105d2bd83bd25578/fresh-air.jpg?raw=true
-    #logo: https://github.com/moltaire.png
+    # logo: https://github.com/moltaire/moltaire.github.io/blob/cefef8bb3fd5298ea7692047105d2bd83bd25578/fresh-air.jpg?raw=true
+    logo: https://github.com/moltaire.png
     logo-href: https://moltaire.github.io
     logo-alt: "Fresh Air"
     alignment: center

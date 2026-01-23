@@ -46,9 +46,10 @@ _quarto.yml              # Quarto configuration
 
 ## To-Do
 
-- [ ] src: Implement frequentist test
+- [x] src: Implement frequentist test
 - [ ] src: Implement Baysian testing
 - [ ] nb: Run frequentist test
 - [ ] nb: Run Baysian test
 - [ ] nb: Visualize Bayesian test result
 - [ ] nb: Write wrap-up and outlook
+- [ ] implement GitHub action to automatically render this
