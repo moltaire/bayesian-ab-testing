@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Virtual environment
+.venv/
+.uv/
+
+# Data
+data/
+*.csv
+*.parquet
+
+# IDE
+.vscode/
+
+# Quarto
+_site/
+_freeze/
+/.quarto/
+**/*.quarto_ipynb
+
+# System
+.DS_Store

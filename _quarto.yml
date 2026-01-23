@@ -1,0 +1,77 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Bayesian A/B Testing"
+  description: "Stop with confidence"
+  site-url: https://moltaire.github.io/bayesian-ab-testing
+  repo-url: https://github.com/moltaire/bayesian-ab-testing
+  repo-actions: [issue, edit]
+
+  sidebar:
+    style: "docked"
+    background: "#FFFFFF"
+    border: false
+    logo: https://github.com/moltaire/moltaire.github.io/blob/cefef8bb3fd5298ea7692047105d2bd83bd25578/fresh-air.jpg?raw=true
+    #logo: https://github.com/moltaire.png
+    logo-href: https://moltaire.github.io
+    logo-alt: "Fresh Air"
+    alignment: center
+    tools:
+      - icon: globe
+        href: https://www.felixmolter.com
+      - icon: github
+        href: https://github.com/moltaire
+      - icon: linkedin
+        href: https://linkedin.com/in/felixmolter
+      - icon: envelope  
+        href: mailto:mail@felixmolter.com
+      - icon: bookmarks
+        href: https://scholar.google.de/citations?user=ZmZ8N6QAAAAJ
+    contents:
+      - text: |
+          <div style="text-align: center;">
+            <strong>Felix Molter</strong>
+            <p>{Behavioral, Cognitive, Data} Scientist</p>
+          </div>
+    search: false
+
+  page-footer:
+    left: "© 2026 Felix Molter"
+    right:
+      - icon: github
+        href: https://github.com/moltaire
+      - icon: globe
+        href: https://moltaire.github.io
+
+format:
+  html:
+    theme: cosmo
+    toc: false
+    toc-location: left
+    toc-depth: 2
+    toc-title: "Content"
+    code-fold: false
+    code-block-bg: "#FAFAFA"
+    code-block-border-left: false
+    code-tools: false
+    code-copy: true
+    code-overflow: wrap
+    code-line-numbers: false
+    number-sections: false
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 300
+    page-layout: article
+    grid:
+      sidebar-width: 220px
+      margin-width: 100px
+      gutter-width: 4rem
+    mainfont: "-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
+
+execute:
+  freeze: auto
+  cache: true
+  warning: false
+  message: false
