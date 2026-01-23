@@ -34,7 +34,7 @@ jobs:
           version: "latest"
 
       - name: Install Python dependencies
-        run: uv sync --extra dev
+        run: uv sync --group dev
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
