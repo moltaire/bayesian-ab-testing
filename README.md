@@ -6,10 +6,11 @@ Demonstrate how Bayesian sequential analysis enables efficient and informative A
 
 ## To-Do
 
-- [x] src: Implement frequentist test
-- [x] implement GitHub action to automatically render this
-- [x] nb: Run frequentist test
 - [ ] src: Implement Baysian testing
 - [ ] nb: Run Baysian test
 - [ ] nb: Visualize Bayesian test result
 - [ ] nb: Write wrap-up and outlook
+
+- [x] src: Implement frequentist test
+- [x] implement GitHub action to automatically render this
+- [x] nb: Run frequentist test
