@@ -1,16 +1,30 @@
-# Bayesian Sequential A/B Testing
+<p align="center">
+  <img src="figures/header.png" alt="Bayesian A/B Testing" width="600">
+</p>
 
-Demonstrate how Bayesian sequential analysis enables efficient and informative A/B testing decisions.
+# Bayesian A/B Testing
 
-**[View the blog post →](https://moltaire.github.io/bayesian-ab-testing)**
+Flexible metrics for better decisions. A companion repository to the blog post.
 
-## To-Do
+**[Read the blog post →](https://moltaire.github.io/bayesian-ab-testing)**
 
-- [ ] src: Implement Baysian testing
-- [ ] nb: Run Baysian test
-- [ ] nb: Visualize Bayesian test result
-- [ ] nb: Write wrap-up and outlook
+## Setup
 
-- [x] src: Implement frequentist test
-- [x] implement GitHub action to automatically render this
-- [x] nb: Run frequentist test
+```bash
+uv sync
+```
+
+## Project structure
+
+```
+.
+├── index.ipynb              # Main notebook / blog post
+├── src/bayesian_ab/         # Python package
+│   ├── simulation.py        #   A/B test data simulation
+│   ├── frequentist.py       #   Power analysis & z-tests
+│   └── bayesian/            #   Bayesian analysis
+│       ├── metrics.py       #     P(B>A), expected loss, ROPE, HDI
+│       ├── conjugate.py     #     Beta-Binomial model
+│       └── models.py        #     PyMC model builders
+└── tests/                   # pytest tests
+```
