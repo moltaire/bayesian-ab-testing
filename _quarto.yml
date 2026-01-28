@@ -48,9 +48,9 @@ website:
 format:
   html:
     theme: cosmo
-    toc: false
+    toc: true
     toc-location: left
-    toc-depth: 2
+    toc-depth: 3
     toc-title: "Content"
     code-fold: false
     code-block-bg: "#FAFAFA"
@@ -60,8 +60,8 @@ format:
     code-overflow: wrap
     code-line-numbers: false
     number-sections: false
-    fig-width: 8
-    fig-height: 5
+    #fig-width: 8
+    #fig-height: 5
     fig-dpi: 300
     page-layout: article
     grid:
