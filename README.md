@@ -1,4 +1,4 @@
-<p align="center">
+<p align="left">
   <img src="figures/header.png" alt="Bayesian A/B Testing" width="600">
 </p>
 
