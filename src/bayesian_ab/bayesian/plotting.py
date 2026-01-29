@@ -24,7 +24,7 @@ def plot_sequential_metrics(results, thresholds=None, figsize=None, rope=None):
     if thresholds is None:
         thresholds = {"prob": 0.95, "loss": 0.001}
     if figsize is None:
-        figsize = my.utilities.cm2inch(16, 3.75)
+        figsize = my.utilities.cm2inch(16, 4)
 
     colors = plt.cm.plasma([0.1, 0.8])
 

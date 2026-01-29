@@ -24,3 +24,6 @@ _freeze/
 
 # System
 .DS_Store
+
+# Local
+local

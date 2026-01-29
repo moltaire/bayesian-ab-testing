@@ -22,5 +22,5 @@ results = bab.bayesian.sequential_analysis(data, rope=rope, seed=1763)
 
 # Plot metrics over time
 fig, axs = bab.bayesian.plot_sequential_metrics(results, rope=rope)
-fig.savefig("figures/metrics.png", dpi=150, bbox_inches="tight")
+fig.savefig("figures/metrics.png", dpi=300, bbox_inches="tight")
 print("Saved figures/metrics.png")
