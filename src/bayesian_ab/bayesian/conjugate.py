@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 from scipy import stats
 
-from .metrics import expected_loss, prob_above_rope, prob_b_better
+from .metrics import expected_loss, hdi, prob_above_rope, prob_b_better
 
 
 @dataclass
@@ -69,12 +69,20 @@ def sequential_analysis(data, prior_a=None, prior_b=None, rope=0.01,
         s_b = post_b.rvs(n_samples, random_state=rng)
 
         loss_a, loss_b = expected_loss(s_a, s_b)
+        hdi_a = hdi(s_a)
+        hdi_b = hdi(s_b)
         results.append({
             "day": day,
             "prob_b_better": prob_b_better(s_a, s_b),
             "expected_loss_a": loss_a,
             "expected_loss_b": loss_b,
             "prob_above_rope": prob_above_rope(s_a, s_b, rope),
+            "mean_a": float(np.mean(s_a)),
+            "mean_b": float(np.mean(s_b)),
+            "hdi_a_lo": hdi_a[0],
+            "hdi_a_hi": hdi_a[1],
+            "hdi_b_lo": hdi_b[0],
+            "hdi_b_hi": hdi_b[1],
         })
 
     return pd.DataFrame(results)

@@ -6,13 +6,42 @@
 
 Flexible metrics for better decisions. A companion repository to the blog post.
 
-**[Read the blog post →](https://moltaire.github.io/bayesian-ab-testing)**
+**[📄 Read the blog post here](https://moltaire.github.io/bayesian-ab-testing)**
 
-## Setup
+## Installation
 
 ```bash
 uv sync
 ```
+
+Or install as editable package:
+
+```bash
+uv pip install -e .
+```
+
+## Usage
+
+```python
+import src.bayesian_ab as bab
+
+# Simulate A/B test data
+data = bab.simulation.simulate_ab_test(
+    n_days=10,
+    daily_n=50,
+    p_a=0.10,
+    p_b=0.12,
+    seed=1763,  # Year Bayes' theorem was published
+)
+
+# Run Bayesian sequential analysis
+results = bab.bayesian.sequential_analysis(data, rope=0.005, seed=1763)
+
+# Plot metrics over time
+fig, axs = bab.bayesian.plot_sequential_metrics(results, rope=0.005)
+```
+
+![Sequential metrics](figures/metrics.png)
 
 ## Project structure
 
@@ -25,6 +54,7 @@ uv sync
 │   └── bayesian/            #   Bayesian analysis
 │       ├── metrics.py       #     P(B>A), expected loss, ROPE, HDI
 │       ├── conjugate.py     #     Beta-Binomial model
+│       ├── plotting.py      #     Sequential metrics plot
 │       └── models.py        #     PyMC model builders
 └── tests/                   # pytest tests
 ```

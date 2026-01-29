@@ -93,6 +93,11 @@ class TestConjugate:
         assert "expected_loss_a" in result.columns
         assert "expected_loss_b" in result.columns
         assert "prob_above_rope" in result.columns
+        # HDI columns
+        assert "mean_a" in result.columns
+        assert "mean_b" in result.columns
+        assert "hdi_a_lo" in result.columns
+        assert "hdi_b_hi" in result.columns
 
     def test_sequential_analysis_monotonic_uncertainty(self):
         """Expected loss should generally decrease over time (more data = less uncertainty)."""
@@ -120,3 +125,65 @@ class TestSimulation:
         data1 = simulation.simulate_ab_test(n_days=5, seed=123)
         data2 = simulation.simulate_ab_test(n_days=5, seed=123)
         assert data1["conversions"].tolist() == data2["conversions"].tolist()
+
+
+class TestPlotting:
+    """Tests for plotting functions."""
+
+    def test_plot_sequential_metrics_returns_figure(self):
+        """Plotting function returns figure and axes."""
+        import matplotlib.pyplot as plt
+
+        data = simulation.simulate_ab_test(n_days=5, seed=42)
+        results = bayesian.sequential_analysis(data, seed=42)
+        fig, axs = bayesian.plot_sequential_metrics(results)
+
+        assert fig is not None
+        assert len(axs) == 4  # HDI, P(B>A), ROPE, Expected loss
+        plt.close(fig)
+
+    def test_plot_sequential_metrics_custom_thresholds(self):
+        """Plotting works with custom thresholds."""
+        import matplotlib.pyplot as plt
+
+        data = simulation.simulate_ab_test(n_days=5, seed=42)
+        results = bayesian.sequential_analysis(data, seed=42)
+        fig, axs = bayesian.plot_sequential_metrics(
+            results, thresholds={"prob": 0.90, "loss": 0.005}
+        )
+
+        assert fig is not None
+        plt.close(fig)
+
+
+class TestUsageExample:
+    """Test the README usage example works end-to-end."""
+
+    def test_readme_example(self):
+        """The usage example in README runs without error."""
+        import matplotlib.pyplot as plt
+
+        import src.bayesian_ab as bab
+
+        # Simulate A/B test data
+        data = bab.simulation.simulate_ab_test(
+            n_days=10,
+            daily_n=50,
+            p_a=0.10,
+            p_b=0.12,
+            seed=1763,  # Year Bayes' theorem was published
+        )
+
+        # Run Bayesian sequential analysis
+        results = bab.bayesian.sequential_analysis(data, rope=0.005, seed=1763)
+
+        # Plot metrics over time
+        fig, axs = bab.bayesian.plot_sequential_metrics(results, rope=0.005)
+
+        # Verify results
+        assert len(data) == 20  # 10 days x 2 variants
+        assert len(results) == 10
+        assert "prob_b_better" in results.columns
+        assert fig is not None
+
+        plt.close(fig)
