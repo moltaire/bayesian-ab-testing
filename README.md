@@ -6,7 +6,7 @@
 
 Flexible metrics for better decisions. A companion repository to the blog post.
 
-**[📄 Read the blog post here](https://moltaire.github.io/bayesian-ab-testing)**
+📄 **[Read the post here](https://moltaire.github.io/bayesian-ab-testing)**
 
 ## Installation
 
